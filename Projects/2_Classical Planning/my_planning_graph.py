@@ -3,7 +3,7 @@ from itertools import chain, combinations
 from aimacode.planning import Action
 from aimacode.utils import expr
 
-from layers import BaseActionLayer, BaseLiteralLayer, makeNoOp, make_node
+from layers import BaseActionLayer, BaseLiteralLayer, makeNoOp, make_node, ActionNode
 
 
 class ActionLayer(BaseActionLayer):
@@ -19,8 +19,15 @@ class ActionLayer(BaseActionLayer):
         --------
         layers.ActionNode
         """
-        # TODO: implement this function
-        raise NotImplementedError
+        assert isinstance(actionA, ActionNode), type(actionA)
+        assert isinstance(actionB, ActionNode), type(actionB)
+
+        for effect_a in actionA.effects:
+            for effect_b in actionB.effects:
+                if effect_a == ~effect_b:
+                    return True
+
+        return False
 
 
     def _interference(self, actionA, actionB):
@@ -34,8 +41,21 @@ class ActionLayer(BaseActionLayer):
         --------
         layers.ActionNode
         """
-        # TODO: implement this function
-        raise NotImplementedError
+        assert isinstance(actionA, ActionNode), type(actionA)
+        assert isinstance(actionB, ActionNode), type(actionB)
+
+        for effect_a in actionA.effects:
+            for precond_b in actionB.preconditions:
+                if effect_a == ~precond_b:
+                    return True
+
+        for effect_b in actionB.effects:
+            for precond_a in actionB.preconditions:
+                if effect_b == ~precond_a:
+                    return True
+
+        return False
+        # raise NotImplementedError
 
     def _competing_needs(self, actionA, actionB):
         """ Return True if any preconditions of the two actions are pairwise mutex in the parent layer
@@ -49,8 +69,15 @@ class ActionLayer(BaseActionLayer):
         layers.ActionNode
         layers.BaseLayer.parent_layer
         """
-        # TODO: implement this function
-        raise NotImplementedError
+        assert isinstance(actionA, ActionNode), type(actionA)
+        assert isinstance(actionB, ActionNode), type(actionB)
+
+        for precond_a in actionA.preconditions:
+            for precond_b in actionB.preconditions:
+                if (self.parent_layer.is_mutex(precond_a, precond_b)) or (self.parent_layer.is_mutex(precond_b, precond_a)):
+                    return True
+
+        return False
 
 
 class LiteralLayer(BaseLiteralLayer):
@@ -67,12 +94,25 @@ class LiteralLayer(BaseLiteralLayer):
         layers.BaseLayer.parent_layer
         """
         # TODO: implement this function
-        raise NotImplementedError
+        if literalA == ~literalB:
+            return True
+
+        assert literalA in self.parents.keys()
+        assert literalB in self.parents.keys()
+        assert len(self.parents[literalA]) > 0
+        assert len(self.parents[literalB]) > 0
+
+        for action_a in self.parents[literalA]:
+            for action_b in self.parents[literalB]:
+                if (not self.parent_layer.is_mutex(action_a, action_b)) and (not self.parent_layer.is_mutex(action_b, action_a)):
+                    return False
+
+        return True
 
     def _negation(self, literalA, literalB):
         """ Return True if two literals are negations of each other """
         # TODO: implement this function
-        raise NotImplementedError
+        return literalA == ~literalB
 
 
 class PlanningGraph:
