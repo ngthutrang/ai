@@ -22,8 +22,8 @@ class ActionLayer(BaseActionLayer):
         assert isinstance(actionA, ActionNode), type(actionA)
         assert isinstance(actionB, ActionNode), type(actionB)
 
-        for effect_a in actionA.effects:
-            for effect_b in actionB.effects:
+        for effect_a in self.children[actionA]:
+            for effect_b in self.children[actionB]:
                 if effect_a == ~effect_b:
                     return True
 
@@ -44,13 +44,13 @@ class ActionLayer(BaseActionLayer):
         assert isinstance(actionA, ActionNode), type(actionA)
         assert isinstance(actionB, ActionNode), type(actionB)
 
-        for effect_a in actionA.effects:
-            for precond_b in actionB.preconditions:
+        for effect_a in self.children[actionA]:
+            for precond_b in self.parents[actionB]:
                 if effect_a == ~precond_b:
                     return True
 
-        for effect_b in actionB.effects:
-            for precond_a in actionB.preconditions:
+        for effect_b in self.children[actionB]:
+            for precond_a in self.parents[actionA]:
                 if effect_b == ~precond_a:
                     return True
 
@@ -72,9 +72,9 @@ class ActionLayer(BaseActionLayer):
         assert isinstance(actionA, ActionNode), type(actionA)
         assert isinstance(actionB, ActionNode), type(actionB)
 
-        for precond_a in actionA.preconditions:
-            for precond_b in actionB.preconditions:
-                if (self.parent_layer.is_mutex(precond_a, precond_b)) or (self.parent_layer.is_mutex(precond_b, precond_a)):
+        for precond_a in self.parents[actionA]:
+            for precond_b in self.parents[actionB]:
+                if self.parent_layer.is_mutex(precond_a, precond_b):
                     return True
 
         return False
@@ -93,7 +93,6 @@ class LiteralLayer(BaseLiteralLayer):
         --------
         layers.BaseLayer.parent_layer
         """
-        # TODO: implement this function
         if literalA == ~literalB:
             return True
 
@@ -104,14 +103,13 @@ class LiteralLayer(BaseLiteralLayer):
 
         for action_a in self.parents[literalA]:
             for action_b in self.parents[literalB]:
-                if (not self.parent_layer.is_mutex(action_a, action_b)) and (not self.parent_layer.is_mutex(action_b, action_a)):
+                if not self.parent_layer.is_mutex(action_a, action_b):
                     return False
 
         return True
 
     def _negation(self, literalA, literalB):
         """ Return True if two literals are negations of each other """
-        # TODO: implement this function
         return literalA == ~literalB
 
 
