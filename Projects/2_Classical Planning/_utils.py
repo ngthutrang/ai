@@ -26,14 +26,19 @@ def run_search(problem, search_function, parameter=None):
     end = timer()
     print("\n# Actions   Expansions   Goal Tests   New Nodes")
     print("{}\n".format(ip))
+
     show_solution(node, end - start)
     print()
+
+    outputs = [len(ip.actions_list), ip.succs, ip.goal_tests, ip.states, len(node.solution()), end-start]
+    return ",".join([str(o) for o in outputs])
 
 
 def show_solution(node, elapsed_time):
     print("Plan length: {}  Time elapsed in seconds: {}".format(len(node.solution()), elapsed_time))
     for action in node.solution():
         print("{}{}".format(action.name, action.args))
+    return [len(node.solution()), elapsed_time]
 
 
 def create_expressions(str_list):

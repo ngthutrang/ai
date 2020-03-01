@@ -69,6 +69,7 @@ def manual():
 def main(p_choices, s_choices):
     problems = [PROBLEMS[i-1] for i in map(int, p_choices)]
     searches = [SEARCHES[i-1] for i in map(int, s_choices)]
+    out_list = []
 
     for pname, problem_fn in problems:
         for sname, search_fn, heuristic in searches:
@@ -77,7 +78,16 @@ def main(p_choices, s_choices):
 
             problem_instance = problem_fn()
             heuristic_fn = None if not heuristic else getattr(problem_instance, heuristic)
-            run_search(problem_instance, search_fn, heuristic_fn)
+            out = "{},{}{},{}".format(pname, sname, hstring, run_search(problem_instance, search_fn, heuristic_fn))
+            out_list.append(out)
+
+    import datetime
+    curr_time = datetime.datetime.now().strftime("%H%M%S")
+    with open("output_{}.csv".format(curr_time), "w") as f:
+        f.write("Problem,SearchAlgo,Actions,Expansions,Goal_Tests,New_Nodes,Plan_Length,Time\n")
+        for l in out_list:
+            f.write("{}\n".format(l))
+        print("print output to output_{}.csv".format(curr_time))
 
 
 if __name__=="__main__":
