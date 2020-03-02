@@ -1,0 +1,2 @@
+Problem,SearchAlgo,Actions,Expansions,Goal_Tests,New_Nodes,Plan_Length,Time
+Air Cargo Problem 3,astar_search with h_pg_maxlevel,88,9580,9582,86312,12,3023.2982883150003
