@@ -1,0 +1,10 @@
+Problem,SearchAlgo,Actions,Expansions,Goal_Tests,New_Nodes,Plan_Length,Time
+Air Cargo Problem 3,breadth_first_search,88,14663,18098,129625,12,5.6597055439999995
+Air Cargo Problem 3,depth_first_graph_search,88,408,409,3364,392,0.5221734409999996
+Air Cargo Problem 3,uniform_cost_search,88,18510,18512,161936,12,7.626948593
+Air Cargo Problem 3,greedy_best_first_graph_search with h_unmet_goals,88,25,27,230,15,0.019331958000000427
+Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_levelsum,88,14,16,126,14,7.203818351999999
+Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_maxlevel,88,21,23,195,13,7.249122864
+Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_setlevel,88,35,37,345,17,59.69600106600001
+Air Cargo Problem 3,astar_search with h_unmet_goals,88,7388,7390,65711,12,4.4489755849999995
+Air Cargo Problem 3,astar_search with h_pg_levelsum,88,369,371,3403,12,161.80593098500003
