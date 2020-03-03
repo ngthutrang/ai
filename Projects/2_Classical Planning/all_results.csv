@@ -1,0 +1,42 @@
+,Problem,SearchAlgo,Actions,Expansions,Goal_Tests,New_Nodes,Plan_Length,Time,algo_no,algo_type
+0,Air Cargo Problem 1,breadth_first_search,20,43,56,178,6,0.006307053030468524,1,uninformed
+1,Air Cargo Problem 1,depth_first_graph_search,20,21,22,84,20,0.003362405928783119,2,uninformed
+2,Air Cargo Problem 1,uniform_cost_search,20,60,62,240,6,0.009503328939899802,3,uninformed
+3,Air Cargo Problem 1,greedy_best_first_graph_search with h_unmet_goals,20,7,9,29,6,0.001606496050953865,4,greedy
+4,Air Cargo Problem 1,greedy_best_first_graph_search with h_pg_levelsum,20,6,8,28,6,0.23864159197546544,5,greedy
+5,Air Cargo Problem 1,greedy_best_first_graph_search with h_pg_maxlevel,20,6,8,24,6,0.16030983405653387,6,greedy
+6,Air Cargo Problem 1,greedy_best_first_graph_search with h_pg_setlevel,20,6,8,28,6,0.7302603569114581,7,greedy
+7,Air Cargo Problem 1,astar_search with h_unmet_goals,20,50,52,206,6,0.009300729958340527,8,astart
+8,Air Cargo Problem 1,astar_search with h_pg_levelsum,20,28,30,122,6,0.5791539059719071,9,astart
+9,Air Cargo Problem 1,astar_search with h_pg_maxlevel,20,43,45,180,6,0.6701457860181108,10,astart
+10,Air Cargo Problem 1,astar_search with h_pg_setlevel,20,33,35,138,6,1.7800908919889482,11,astart
+11,Air Cargo Problem 2,breadth_first_search,72,3343,4609,30503,9,2.196660699089989,1,uninformed
+12,Air Cargo Problem 2,depth_first_graph_search,72,624,625,5602,619,2.838106628973037,2,uninformed
+13,Air Cargo Problem 2,uniform_cost_search,72,5154,5156,46618,9,3.529324999079108,3,uninformed
+14,Air Cargo Problem 2,greedy_best_first_graph_search with h_unmet_goals,72,17,19,170,9,0.02031317399814725,4,greedy
+15,Air Cargo Problem 2,greedy_best_first_graph_search with h_pg_levelsum,72,9,11,86,9,5.311094038072042,5,greedy
+16,Air Cargo Problem 2,greedy_best_first_graph_search with h_pg_maxlevel,72,27,29,249,9,8.118059945991263,6,greedy
+17,Air Cargo Problem 2,greedy_best_first_graph_search with h_pg_setlevel,72,9,11,84,9,18.495632826001387,7,greedy
+18,Air Cargo Problem 2,astar_search with h_unmet_goals,72,2467,2469,22522,9,2.3081225969363004,8,astart
+19,Air Cargo Problem 2,astar_search with h_pg_levelsum,72,357,359,3426,9,143.68062301608734,9,astart
+20,Air Cargo Problem 2,astar_search with h_pg_maxlevel,72,2887,2889,26594,9,824.0280932640891,10,astart
+21,Air Cargo Problem 2,astar_search with h_pg_setlevel,72,1037,1039,9605,9,1649.061477026902,11,astart
+22,Air Cargo Problem 3,breadth_first_search,88,14663,18098,129625,12,5.659705544,1,uninformed
+23,Air Cargo Problem 3,depth_first_graph_search,88,408,409,3364,392,0.5221734409999996,2,uninformed
+24,Air Cargo Problem 3,uniform_cost_search,88,18510,18512,161936,12,7.626948593,3,uninformed
+25,Air Cargo Problem 3,greedy_best_first_graph_search with h_unmet_goals,88,25,27,230,15,0.019331958000000427,4,greedy
+26,Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_levelsum,88,14,16,126,14,7.203818351999999,5,greedy
+27,Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_maxlevel,88,21,23,195,13,7.249122863999999,6,greedy
+28,Air Cargo Problem 3,greedy_best_first_graph_search with h_pg_setlevel,88,35,37,345,17,59.696001066,7,greedy
+29,Air Cargo Problem 3,astar_search with h_unmet_goals,88,7388,7390,65711,12,4.448975585,8,astart
+30,Air Cargo Problem 3,astar_search with h_pg_levelsum,88,369,371,3403,12,161.80593098500003,9,astart
+31,Air Cargo Problem 3,astar_search with h_pg_maxlevel,88,9580,9582,86312,12,3023.2982883150007,10,astart
+32,Air Cargo Problem 4,breadth_first_search,104,99736,114953,944130,14,51.651944158999996,1,uninformed
+33,Air Cargo Problem 4,depth_first_graph_search,104,25174,25175,228849,24132,1551.455582995,2,uninformed
+34,Air Cargo Problem 4,uniform_cost_search,104,113339,113341,1066413,14,65.69217765599979,3,uninformed
+35,Air Cargo Problem 4,greedy_best_first_graph_search with h_unmet_goals,104,29,31,280,18,0.03070342000000892,4,greedy
+36,Air Cargo Problem 4,greedy_best_first_graph_search with h_pg_levelsum,104,17,19,165,17,13.811080617000014,5,greedy
+37,Air Cargo Problem 4,greedy_best_first_graph_search with h_pg_maxlevel,104,56,58,580,17,23.34943737200001,6,greedy
+38,Air Cargo Problem 4,greedy_best_first_graph_search with h_pg_setlevel,104,107,109,1164,23,295.945621312,7,greedy
+39,Air Cargo Problem 4,astar_search with h_unmet_goals,104,34330,34332,328509,14,31.256358027000037,8,astart
+40,Air Cargo Problem 4,astar_search with h_pg_levelsum,104,1208,1210,12210,15,984.2996417969998,9,astart
